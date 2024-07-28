@@ -1,6 +1,6 @@
 
-// https://www.geeksforgeeks.org/measure-time-taken-function-java/
-//import java.io.*;
+// sources https://www.geeksforgeeks.org/measure-time-taken-function-java/
+// sources https://www.geeksforgeeks.org/perfect-number/
 
 public class Perfectnumber {
 
@@ -23,12 +23,22 @@ public class Perfectnumber {
         }
     }
 
+    /**
+     * This method calculates the perfect number between 1 and 200 as an example of
+     * the process
+     */
     public static void perfectNumber() {
         // inner loop covers numbers from 1 to 200 and iterates for each number
         System.out.println("the perfect numbers between 1 and 200 are: ");
         perfectNumberLoop(200);
     }
 
+    /**
+     * This method calculates the perfect number between 1 and the number passed in,
+     * measures the time it takes to execute, and prints the results
+     * 
+     * @param number
+     */
     public static void perfectNumber(long number) {
         System.out.println("Running... Note larger numbers take longer to run");
         System.out.println("the perfect numbers between 1 and " + number + " are: ");
