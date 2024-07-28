@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner; // Import the Scanner class
 
 public class App {
@@ -8,26 +9,31 @@ public class App {
          * example
          */
         Perfectnumber.perfectNumber();
-
-        // varable for validation of user input
-        long number = 0;
-
         // Scanner for user input
         Scanner sc = new Scanner(System.in);
+        boolean validInput;
+        long number = 0;
 
-        System.out.println("Enter an upper range to scan for perfect numbers: ");
-        number = sc.nextLong();
+        do {
+            System.out.println("Enter an upper range to scan for perfect numbers: ");
+            validInput = true;
+            try {
+                number = sc.nextLong();
+                if (number < 1) {
+                    System.out.println("Invalid input. Please enter a whole number greater than 0.");
+                    validInput = false;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a whole number greater than 0.");
+                validInput = false;
+                // this clears the input buffer so we don't go into an infinite loop
+                sc.next();
+            }
+        } while (!validInput);
+
         Perfectnumber.perfectNumber(number);
 
         sc.close();
         System.out.println("Thank you for using the perfect number finder!");
-    }
-
-    public boolean validateInput(long number) {
-        if (number <= 1) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }
